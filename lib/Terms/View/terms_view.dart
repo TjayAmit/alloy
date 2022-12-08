@@ -1,8 +1,8 @@
 import 'package:alloy/Component/Widget/text_form_widget.dart';
 import 'package:alloy/packages.dart';
 
-class BusinessView extends GetView<AuthController> {
-  const BusinessView({Key? key}) : super(key: key);
+class TermsView extends GetView<AuthController> {
+  const TermsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class BusinessView extends GetView<AuthController> {
           color: Colors.amber,
         ),
         title: const TextView(
-          title: 'Business',
+          title: 'Terms',
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
@@ -34,7 +34,7 @@ class BusinessView extends GetView<AuthController> {
             width: Get.width,
             height: Get.height * 0.95,
             child: const Center(
-              child: TextView(title: 'Business'),
+              child: TextView(title: 'Terms'),
             )),
       ),
     );

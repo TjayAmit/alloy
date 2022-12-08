@@ -1,20 +1,33 @@
 import 'package:alloy/Component/Widget/text_form_widget.dart';
 import 'package:alloy/packages.dart';
 
-class SigninView extends GetView<AuthController> {
-  const SigninView({Key? key}) : super(key: key);
+class ChangePassword extends GetView<AuthController> {
+  const ChangePassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 0,
-        elevation: 0,
+        backgroundColor: Colors.white,
         flexibleSpace: Container(
           width: Get.width,
           height: 35,
           color: Colors.amber,
         ),
+        title: const TextView(
+          title: 'Change Password',
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+        leading: IconButton(
+            splashColor: Colors.transparent,
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(
+              Icons.arrow_back_outlined,
+              color: Colors.amber,
+            )),
       ),
       body: SingleChildScrollView(
         child: SizedBox(
@@ -30,7 +43,7 @@ class SigninView extends GetView<AuthController> {
                       child: SizedBox(
                     width: 200,
                     height: 200,
-                    child: SvgPicture.asset('./assets/logo/logo.svg'),
+                    child: SvgPicture.asset('./assets/img/account_logo.svg'),
                   )),
                 )),
             Flexible(flex: 5, child: form())
@@ -50,10 +63,10 @@ class SigninView extends GetView<AuthController> {
           children: [
             const SizedBox(height: 20),
             TextFormWidget(
-              controller: controller.email,
-              label: "Email",
-              textInputType: TextInputType.emailAddress,
-              prefixIcon: Icons.email,
+              controller: controller.password,
+              label: "Old Password",
+              textInputType: TextInputType.visiblePassword,
+              prefixIcon: Icons.lock,
               enabled: true,
             ),
             const SizedBox(height: 20),
@@ -64,65 +77,29 @@ class SigninView extends GetView<AuthController> {
               prefixIcon: Icons.lock,
               enabled: true,
             ),
-            const SizedBox(height: 30),
-            TextButton(
-                onPressed: () {
-                  Get.toNamed('/recovery');
-                },
-                child: const TextView(
-                  title: 'forgot password?',
-                  color: Colors.black38,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                )),
-            const SizedBox(height: 35),
+            const SizedBox(height: 20),
+            TextFormWidget(
+              controller: controller.confirmPassword,
+              label: "Confirm password",
+              textInputType: TextInputType.visiblePassword,
+              prefixIcon: Icons.lock,
+              enabled: true,
+            ),
+            const SizedBox(height: 60),
             SizedBox(
               width: Get.width,
               height: 40,
               child: MaterialButton(
                 color: Colors.amber,
-                onPressed: () {
-                  Get.toNamed('/home');
-                },
+                onPressed: () {},
                 child: const TextView(
-                  title: 'Login',
+                  title: 'Save changes',
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),
               ),
             ),
-            const SizedBox(height: 15),
-            SizedBox(
-              width: Get.width,
-              height: 40,
-              child: MaterialButton(
-                color: Colors.grey,
-                onPressed: () {
-                  Get.toNamed('/signup');
-                },
-                child: const TextView(
-                  title: 'Create Account',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            SizedBox(height: Get.height * 0.1),
-            SizedBox(
-              width: Get.width,
-              height: 40,
-              child: const Center(
-                child: TextView(
-                  title: 'ALLOY COMPANY',
-                  fontSize: 14,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 5,
-                ),
-              ),
-            )
           ],
         ),
       ),

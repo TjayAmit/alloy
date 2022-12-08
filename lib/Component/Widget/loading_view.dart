@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:alloy/packages.dart';
 
 class LoadingView extends StatelessWidget {

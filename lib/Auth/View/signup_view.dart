@@ -1,8 +1,8 @@
 import 'package:alloy/Component/Widget/text_form_widget.dart';
 import 'package:alloy/packages.dart';
 
-class SigninView extends GetView<AuthController> {
-  const SigninView({Key? key}) : super(key: key);
+class SignupView extends GetView<AuthController> {
+  const SignupView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,11 +64,17 @@ class SigninView extends GetView<AuthController> {
               prefixIcon: Icons.lock,
               enabled: true,
             ),
+            const SizedBox(height: 20),
+            TextFormWidget(
+              controller: controller.confirmPassword,
+              label: "Confirm password",
+              textInputType: TextInputType.visiblePassword,
+              prefixIcon: Icons.lock,
+              enabled: true,
+            ),
             const SizedBox(height: 30),
             TextButton(
-                onPressed: () {
-                  Get.toNamed('/recovery');
-                },
+                onPressed: () {},
                 child: const TextView(
                   title: 'forgot password?',
                   color: Colors.black38,
@@ -85,7 +91,7 @@ class SigninView extends GetView<AuthController> {
                   Get.toNamed('/home');
                 },
                 child: const TextView(
-                  title: 'Login',
+                  title: 'Register',
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
@@ -99,10 +105,10 @@ class SigninView extends GetView<AuthController> {
               child: MaterialButton(
                 color: Colors.grey,
                 onPressed: () {
-                  Get.toNamed('/signup');
+                  Get.toNamed('/signin');
                 },
                 child: const TextView(
-                  title: 'Create Account',
+                  title: 'Login',
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   color: Colors.white,

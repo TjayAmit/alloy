@@ -9,7 +9,8 @@ class TextView extends StatelessWidget {
       this.fontWeight,
       this.fontStyle,
       this.color,
-      this.textAlign})
+      this.textAlign,
+      this.letterSpacing})
       : super(key: key);
 
   final String? title;
@@ -18,17 +19,18 @@ class TextView extends StatelessWidget {
   final FontStyle? fontStyle;
   final Color? color;
   final TextAlign? textAlign;
+  final double? letterSpacing;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title ?? "Empty Text",
       style: GoogleFonts.poppins(
-        color: color ?? Colors.black,
-        fontSize: fontSize ?? 12,
-        fontWeight: fontWeight ?? FontWeight.w400,
-        fontStyle: fontStyle ?? FontStyle.normal,
-      ),
+          color: color ?? Colors.black,
+          fontSize: fontSize ?? 12,
+          fontWeight: fontWeight ?? FontWeight.w400,
+          fontStyle: fontStyle ?? FontStyle.normal,
+          letterSpacing: letterSpacing ?? 0),
       textAlign: textAlign ?? TextAlign.start,
     );
   }
